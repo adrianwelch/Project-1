@@ -1,3 +1,120 @@
+div {
+  height: 180px;
+  width: 178px;
+}
+
+.timer {
+  color: orange;
+}
 body {
   background-color: red;
+}
+
+.active {
+  background-image: url("http://i.imgur.com/hlbr0XV.png");
+}
+
+.wrongTarget {
+  background-image: url("http://i.imgur.com/8EchVja.png");
+}
+
+.lives {
+  height: 20px;
+  width: 20px;
+  color: white;
+  font-size: 25px;
+}
+
+
+main {
+  background-color: blue;
+}
+
+.gameboard {
+  margin: 100px auto;
+  background-color: black;
+  height: 600px;
+  width: 920px;
+}
+
+.scoreboard {
+  color: white;
+  font-size: 25px;
+}
+
+#first {
+display: inline-block;;
+background-color: yellow;
+margin: 1px;
+}
+
+#second {
+display: inline-block;
+background-color: yellow;
+margin: 1px;
+}
+#third {
+display: inline-block;
+background-color: yellow;
+margin: 1px;
+}
+#fourth {
+display: inline-block;
+background-color: yellow;
+margin: 1px;
+}
+#fifth {
+display: inline-block;
+background-color: yellow;
+margin: 1px;
+}
+#sixth {
+display: inline-block;
+background-color: yellow;
+margin: 1px;
+}
+#seventh {
+display: inline-block;
+background-color: yellow;
+margin: 1px;
+}
+#eighth {
+display: inline-block;
+background-color: yellow;
+margin: 1px;
+}
+#ninth {
+display: inline-block;
+background-color: yellow;
+margin: 1px;
+}
+#tenth {
+display: inline-block;
+background-color: yellow;
+margin: 1px;
+}
+#eleventh {
+display: inline-block;
+background-color: yellow;
+margin: 1px;
+}
+#twelfth {
+display: inline-block;
+background-color: yellow;
+margin: 1px;
+}
+#thirteenth {
+display: inline-block;
+background-color: yellow;
+margin: 1px;
+}
+#fourteenth {
+display: inline-block;
+background-color: yellow;
+margin: 1px;
+}
+#fifteenth {
+display: inline-block;
+background-color: yellow;
+margin: 1px;
 }
