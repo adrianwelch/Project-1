@@ -1,26 +1,23 @@
 function setup(){
 
-  // const $gameboard = $('.gameboard');
-  const $btn = $('button');
+  const $btn = $('#play');
+  const $reset = $('#reset');
   const $first = $('#first');
   const $timer = $('.timer');
   const $scoreboard = $('.scoreboard');
   const $tiles = $('.tile');
   const $lives = $('.lives');
-  // var playing = false;
   let addClass = null;
   let wrongClass = null;
   let timerId = null;
   let moveTimer = null;
   let gameInPlay = true;
 
-
   let score = 0;
   let time = 30;
   let lives = 5;
   $lives.html(lives);
   $scoreboard.html(score);
-
 
   function timer() {
     timerId = setInterval(() => {
@@ -30,15 +27,52 @@ function setup(){
 
     setTimeout(() => {
       clearInterval(timerId);
-    }, 30000);
+    }, 31000);
     highlightTiles();
+    ($btn).hide();
   }
+
+  function restart() {
+    ($tiles).show();
+    ($btn).show();
+    lives = 5;
+    $lives.html(lives);
+    score = 0;
+    $scoreboard.html(score);
+    time = 30;
+    $timer.html(time);
+  }
+
+  // function toggleDiv() {
+  //     setTimeout(function () {
+  //         $("#myDiv").hide();
+  //         setTimeout(function () {
+  //             $("#myDiv").show();
+  //             toggleDiv();
+  //         }, 30000);
+  //     }, 10000);
+  // }
+  // toggleDiv();
+
+
+// function buttonShow() {
+//   setTimeout(function() {
+//     ($btn).show()
+//   } ,4000);
+// }
+
+
+
+
+
+
 
 
 
 
 
   function highlightTiles() {
+
     var target = Math.floor(Math.random() * 14);
     var $randomTile = $tiles.eq(target);
 
@@ -51,37 +85,56 @@ function setup(){
       $randomTile.addClass('active');
       $randomTileTwo.addClass('wrongTarget');
 
+      if(score <= 4) {
       moveTimer = setTimeout(function() {
         $randomTileTwo.removeClass('wrongTarget');
         $randomTile.removeClass('active');
         highlightTiles();
-      }, 3000);
+      }, 1000);
+
+    } else if(score >= 5) {
+      moveTimer = setTimeout(function() {
+        $randomTileTwo.removeClass('wrongTarget');
+        $randomTile.removeClass('active');
+        highlightTiles();
+      }, 600);
+
+    } else if(score > 10) {
+      moveTimer = setTimeout(function() {
+        $randomTileTwo.removeClass('wrongTarget');
+        $randomTile.removeClass('active');
+        highlightTiles();
+      }, 300);
+    }
 
       gameInPlay = true;
 
       gameOver();
+      timesUp();
     }
-
   }
 
   function stopTimer() {
     clearInterval(timerId);
+    $tiles.removeClass('wrongTarget active');
+
+    ($tiles).hide();
+    ($btn).hide();
   }
 
   function gameOver() {
     if (lives === 0) {
-      console.log(timerId);
-      console.log($tiles);
       stopTimer();
-      $tiles.removeClass('wrongTarget active');
-      score = 0;
-      lives = 5;
-      $lives.html(lives);
-      gameInPlay = false;
     }
   }
 
-
+  function timesUp() {
+    if (time === 0) {
+      stopTimer();
+      $tiles.removeClass('wrongTarget active');
+      ($tiles).off('click');
+    }
+  }
 
   //Function for when correct/incorrect clicked
   $tiles.on('click', (e) => {
@@ -89,68 +142,31 @@ function setup(){
     if (gameInPlay) {
       gameInPlay = false;
       clearTimeout(moveTimer);
-      console.log('gameInPlay is:', gameInPlay);
       const $tile = $(e.target);
       if($tile.hasClass('active')) {
         score++;
         $tiles.removeClass('active wrongTarget');
         $scoreboard.html(score);
       } else {
-        // noClick();
         lives--;
         $lives.html(lives);
         $tiles.removeClass('active wrongTarget');
-        // gameOver();
       }
-      setTimeout(highlightTiles, 500);
+
+      if (score <= 4) {
+        setTimeout(highlightTiles, 500);
+      } else if (score >= 5) {
+        setTimeout(highlightTiles, 300);
+      } else if (score > 10)  {
+        setTimeout(highlightTiles, 100);
+      }
     }
   }
 
 
 );
 
-
-
-
-
-
-
   $btn.on('click', timer);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // $second.on('click',)
-  // $third.on('click',)
-  // $fourth.on('click',)
-  // $fifth.on('click',)
-  // $sixth.on('click',)
-  // $seventh.on('click',)
-  // $eighth.on('click',)
-  // $ninth.on('click',)
-  // $tenth.on('click',)
-  // $eleventh.on('click',)
-  // $twelfth.on('click',)
-  // $thirteenth.on('click',)
-  // $fourteenth.on('click',)
-  // $fifteenth.on('click',)
-
-
-
-
+  $reset.on('click', restart);
 }
 $(setup);
