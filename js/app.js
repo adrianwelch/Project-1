@@ -10,6 +10,10 @@ function setup(){
   // var playing = false;
   let addClass = null;
   let wrongClass = null;
+  let timerId = null;
+  let moveTimer = null;
+  let gameInPlay = true;
+
 
   let score = 0;
   let time = 30;
@@ -19,7 +23,7 @@ function setup(){
 
 
   function timer() {
-    const timerId = setInterval(() => {
+    timerId = setInterval(() => {
       time--;
       $timer.html(time);
     }, 1000);
@@ -30,11 +34,11 @@ function setup(){
     highlightTiles();
   }
 
-  let timerId = null;
+
+
+
 
   function highlightTiles() {
-    clearTimeout(timerId);
-
     var target = Math.floor(Math.random() * 14);
     var $randomTile = $tiles.eq(target);
 
@@ -43,46 +47,67 @@ function setup(){
 
     if($randomTile[0] === $randomTileTwo[0]) {
       highlightTiles();
-    }
-    $randomTile.addClass('active');
-    $randomTileTwo.addClass('wrongTarget');
+    } else {
+      $randomTile.addClass('active');
+      $randomTileTwo.addClass('wrongTarget');
 
-    timerId = setTimeout(function() {
-      $randomTileTwo.removeClass('wrongTarget');
-      $randomTile.removeClass('active');
-      setTimeout(highlightTiles, 1000);
-    }, 3000);
+      moveTimer = setTimeout(function() {
+        $randomTileTwo.removeClass('wrongTarget');
+        $randomTile.removeClass('active');
+        highlightTiles();
+      }, 3000);
+
+      gameInPlay = true;
+
+      gameOver();
+    }
+
+  }
+
+  function stopTimer() {
+    clearInterval(timerId);
   }
 
   function gameOver() {
     if (lives === 0) {
-      $tiles.removeClass('wrongTarget');
-      $tiles.removeClass('active');
-      alert('gameover');
+      console.log(timerId);
+      console.log($tiles);
+      stopTimer();
+      $tiles.removeClass('wrongTarget active');
       score = 0;
       lives = 5;
       $lives.html(lives);
+      gameInPlay = false;
     }
   }
 
 
+
   //Function for when correct/incorrect clicked
   $tiles.on('click', (e) => {
-    const $tile = $(e.target);
-
-    if($tile.hasClass('active')) {
-      score++;
-      $tiles.removeClass('active wrongTarget');
-      $scoreboard.html(score);
-    } else {
-      lives--;
-      $lives.html(lives);
-      $tiles.removeClass('active wrongTarget');
-      gameOver();
+    // var prevScore = score;
+    if (gameInPlay) {
+      gameInPlay = false;
+      clearTimeout(moveTimer);
+      console.log('gameInPlay is:', gameInPlay);
+      const $tile = $(e.target);
+      if($tile.hasClass('active')) {
+        score++;
+        $tiles.removeClass('active wrongTarget');
+        $scoreboard.html(score);
+      } else {
+        // noClick();
+        lives--;
+        $lives.html(lives);
+        $tiles.removeClass('active wrongTarget');
+        // gameOver();
+      }
+      setTimeout(highlightTiles, 500);
     }
+  }
 
-    setTimeout(highlightTiles, 500);
-  });
+
+);
 
 
 
