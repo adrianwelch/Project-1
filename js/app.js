@@ -12,6 +12,8 @@ function setup(){
   let timerId = null;
   let moveTimer = null;
   let gameInPlay = true;
+  let delay = 1000;
+
 
   let score = 0;
   let time = 30;
@@ -23,18 +25,23 @@ function setup(){
     timerId = setInterval(() => {
       time--;
       $timer.html(time);
+
+      if(time === 0) {
+        restart();
+      }
     }, 1000);
 
-    setTimeout(() => {
-      clearInterval(timerId);
-    }, 31000);
     highlightTiles();
-    ($btn).hide();
+    $btn.hide();
   }
 
   function restart() {
-    ($tiles).show();
-    ($btn).show();
+    clearInterval(timerId);
+    clearInterval(moveTimer);
+    $tiles
+      .show()
+      .removeClass('active wrongTarget');
+    $btn.show();
     lives = 5;
     $lives.html(lives);
     score = 0;
@@ -42,6 +49,10 @@ function setup(){
     time = 30;
     $timer.html(time);
   }
+
+
+
+
 
   // function toggleDiv() {
   //     setTimeout(function () {
@@ -75,27 +86,15 @@ function setup(){
       $randomTile.addClass('active');
       $randomTileTwo.addClass('wrongTarget');
 
-      if(score <= 4) {
-        moveTimer = setTimeout(function() {
-          $randomTileTwo.removeClass('wrongTarget');
-          $randomTile.removeClass('active');
-          highlightTiles();
-        }, 1000);
+      if(score <= 4) delay = 1000;
+      else if(score > 10) delay = 300;
+      else if(score >= 5) delay = 600;
 
-    } else if(score >= 5) {
       moveTimer = setTimeout(function() {
         $randomTileTwo.removeClass('wrongTarget');
         $randomTile.removeClass('active');
         highlightTiles();
-      }, 600);
-
-    } else if(score > 10) {
-      moveTimer = setTimeout(function() {
-        $randomTileTwo.removeClass('wrongTarget');
-        $randomTile.removeClass('active');
-        highlightTiles();
-      }, 300);
-    }
+      }, delay);
 
       gameInPlay = true;
 

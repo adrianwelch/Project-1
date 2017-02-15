@@ -1,3 +1,8 @@
+.homePage {
+  height: 1000px;
+  background-color: white;
+}
+
 .tile {
   height: 180px;
   width: 178px;
@@ -13,6 +18,7 @@ body {
 .active {
   background-image: url("https://pbs.twimg.com/profile_images/661555137924612096/o8AqVwHg.png");
 }
+
 
 .wrongTarget {
   background-image: url("http://anonymousglobal.org/commanderx/blog/wp-content/uploads/2014/12/redX2.png");
@@ -52,6 +58,7 @@ main {
   width: 920px;
   float: right;
   display: inline-block;
+  top: 0px;
 }
 
 
