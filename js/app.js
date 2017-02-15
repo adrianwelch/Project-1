@@ -1,5 +1,7 @@
 function setup(){
 
+  const $playBtn = $('#homeBtn');
+  const $gameboard = $('.gameboard');
   const $btn = $('#play');
   const $reset = $('#reset');
   const $first = $('#first');
@@ -7,6 +9,8 @@ function setup(){
   const $scoreboard = $('.scoreboard');
   const $tiles = $('.tile');
   const $lives = $('.lives');
+  const $active = $('.active');
+  const $wrongTarget = $('.wrongTarget')
   let addClass = null;
   let wrongClass = null;
   let timerId = null;
@@ -14,12 +18,17 @@ function setup(){
   let gameInPlay = true;
   let delay = 1000;
 
-
   let score = 0;
   let time = 30;
   let lives = 5;
   $lives.html(lives);
   $scoreboard.html(score);
+
+  $playBtn.click(function() {
+    $('html, body').animate({
+      scrollTop: $gameboard.offset().top
+    }, 2000);
+  });
 
   function timer() {
     timerId = setInterval(() => {
@@ -50,27 +59,6 @@ function setup(){
     $timer.html(time);
   }
 
-
-
-
-
-  // function toggleDiv() {
-  //     setTimeout(function () {
-  //         $("#myDiv").hide();
-  //         setTimeout(function () {
-  //             $("#myDiv").show();
-  //             toggleDiv();
-  //         }, 30000);
-  //     }, 10000);
-  // }
-  // toggleDiv();
-
-
-// function buttonShow() {
-//   setTimeout(function() {
-//     ($btn).show()
-//   } ,4000);
-// }
 
   function highlightTiles() {
 
@@ -107,8 +95,8 @@ function setup(){
     clearInterval(timerId);
     $tiles.removeClass('wrongTarget active');
 
-    ($tiles).hide();
-    ($btn).hide();
+    $tiles.hide();
+    $btn.hide();
   }
 
   function gameOver() {
@@ -155,6 +143,7 @@ function setup(){
 
 );
 
+  $playBtn.on('click', play);
   $btn.on('click', timer);
   $reset.on('click', restart);
 }

@@ -6,6 +6,38 @@
 .tile {
   height: 180px;
   width: 178px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tile:after, .tile:before {
+  content: '';
+  position: absolute;
+  top: -180px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+  background-size: cover;
+  background-position: center;
+}
+
+/*right target*/
+.tile:after {
+  background-image: url("https://pbs.twimg.com/profile_images/661555137924612096/o8AqVwHg.png");
+}
+
+/*wrongTarget*/
+.tile:before {
+  background-image: url("http://anonymousglobal.org/commanderx/blog/wp-content/uploads/2014/12/redX2.png");
+}
+
+.tile.active:after {
+  top: 0;
+}
+
+.tile.wrongTarget:before {
+  top: 0;
 }
 
 .timer {
@@ -15,14 +47,14 @@ body {
   background-color: red;
 }
 
-.active {
+/*.active {
   background-image: url("https://pbs.twimg.com/profile_images/661555137924612096/o8AqVwHg.png");
-}
+}*/
 
 
-.wrongTarget {
+/*.wrongTarget {
   background-image: url("http://anonymousglobal.org/commanderx/blog/wp-content/uploads/2014/12/redX2.png");
-}
+}*/
 
 .scoreLives {
   border: 20px solid black;
