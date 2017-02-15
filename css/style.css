@@ -1,4 +1,4 @@
-div {
+.tile {
   height: 180px;
   width: 178px;
 }
@@ -11,110 +11,124 @@ body {
 }
 
 .active {
-  background-image: url("http://i.imgur.com/hlbr0XV.png");
+  background-image: url("https://pbs.twimg.com/profile_images/661555137924612096/o8AqVwHg.png");
 }
 
 .wrongTarget {
-  background-image: url("http://i.imgur.com/8EchVja.png");
+  background-image: url("http://anonymousglobal.org/commanderx/blog/wp-content/uploads/2014/12/redX2.png");
 }
 
+.scoreLives {
+  border: 20px solid black;
+}
 .lives {
-  height: 20px;
-  width: 20px;
   color: white;
   font-size: 25px;
-}
-
-
-main {
-  background-color: blue;
-}
-
-.gameboard {
-  margin: 100px auto;
-  background-color: black;
-  height: 600px;
-  width: 920px;
+  display: inline;
 }
 
 .scoreboard {
   color: white;
   font-size: 25px;
+  display: inline-block;
 }
+
+main {
+  margin: 150px auto;
+  background-color: blue;
+
+}
+
+.left {
+  height: 600px;
+  width: 920px;
+  display: inline-block;
+}
+.gameboard {
+  /*margin: 100px auto;*/
+  background-image: url("http://i.imgur.com/G2X0Avl.png");
+  background-size: cover;
+  height: 600px;
+  width: 920px;
+  float: right;
+  display: inline-block;
+}
+
+
 
 #first {
 display: inline-block;;
-background-color: yellow;
+background-color: ;
 margin: 1px;
 }
 
 #second {
 display: inline-block;
-background-color: yellow;
+background-color: ;
 margin: 1px;
 }
 #third {
 display: inline-block;
-background-color: yellow;
+background-color: ;
 margin: 1px;
 }
 #fourth {
 display: inline-block;
-background-color: yellow;
+background-color: ;
 margin: 1px;
 }
 #fifth {
 display: inline-block;
-background-color: yellow;
+background-color: ;
 margin: 1px;
 }
 #sixth {
 display: inline-block;
-background-color: yellow;
+background-color: ;
 margin: 1px;
 }
 #seventh {
 display: inline-block;
-background-color: yellow;
+background-color: ;
 margin: 1px;
 }
 #eighth {
 display: inline-block;
-background-color: yellow;
+background-color: ;
 margin: 1px;
 }
 #ninth {
 display: inline-block;
-background-color: yellow;
+background-color: ;
 margin: 1px;
 }
 #tenth {
 display: inline-block;
-background-color: yellow;
+background-color: ;
 margin: 1px;
 }
 #eleventh {
 display: inline-block;
-background-color: yellow;
+background-color: ;
 margin: 1px;
 }
 #twelfth {
 display: inline-block;
-background-color: yellow;
+background-color: ;
 margin: 1px;
 }
 #thirteenth {
 display: inline-block;
-background-color: yellow;
+background-color: ;
 margin: 1px;
 }
 #fourteenth {
 display: inline-block;
-background-color: yellow;
+background-color: ;
 margin: 1px;
 }
 #fifteenth {
 display: inline-block;
-background-color: yellow;
+background-color: ;
 margin: 1px;
 }

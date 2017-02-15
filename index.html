@@ -8,24 +8,33 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/app.js" type="text/javascript" charset="utf-8"></script>
   </head>
+
+
   <body>
     <header>
       <h1>Game</h1>
     </header>
-
     <main>
+      <div class="left">
       <div class="timer">
         30
       </div>
       <div class="display">Ready?</div>
       <button id="play">Play</button>
       <button id="reset">Restart</button>
+
+
+      <div class="scoreLives">
       <div class="scoreboard">
         Score: <span class="score"></span>
       </div>
       <div class="lives">
         Lives:
       </div>
+      </div>
+
+
+    </div>
       <div class="gameboard">
         <div class="tile" id="first"> </div>
         <div class="tile" id="second"> </div>
@@ -44,6 +53,12 @@
         <div class="tile" id="fifteenth"> </div>
       </div>
     </main>
-    <footer></footer>
-  </body>
+
+
+
+
+
+    </body>
+
+
 </html>

@@ -61,16 +61,6 @@ function setup(){
 //   } ,4000);
 // }
 
-
-
-
-
-
-
-
-
-
-
   function highlightTiles() {
 
     var target = Math.floor(Math.random() * 14);
@@ -86,11 +76,11 @@ function setup(){
       $randomTileTwo.addClass('wrongTarget');
 
       if(score <= 4) {
-      moveTimer = setTimeout(function() {
-        $randomTileTwo.removeClass('wrongTarget');
-        $randomTile.removeClass('active');
-        highlightTiles();
-      }, 1000);
+        moveTimer = setTimeout(function() {
+          $randomTileTwo.removeClass('wrongTarget');
+          $randomTile.removeClass('active');
+          highlightTiles();
+        }, 1000);
 
     } else if(score >= 5) {
       moveTimer = setTimeout(function() {
@@ -154,11 +144,11 @@ function setup(){
       }
 
       if (score <= 4) {
-        setTimeout(highlightTiles, 500);
+        setTimeout(highlightTiles, 600);
       } else if (score >= 5) {
-        setTimeout(highlightTiles, 300);
+        setTimeout(highlightTiles, 400);
       } else if (score > 10)  {
-        setTimeout(highlightTiles, 100);
+        setTimeout(highlightTiles, 200);
       }
     }
   }
