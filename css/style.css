@@ -3,6 +3,11 @@
   background-color: white;
 }
 
+.lastPage {
+  height: 1000px;
+  background-color: red;
+}
+
 .tile {
   height: 180px;
   width: 178px;
@@ -58,6 +63,7 @@ body {
 
 .scoreLives {
   border: 20px solid black;
+  width: 80px;
 }
 .lives {
   color: white;
@@ -74,12 +80,12 @@ body {
 main {
   margin: 150px auto;
   background-color: blue;
-
+  display: inline-block;
 }
 
 .left {
   height: 600px;
-  width: 920px;
+  width: 864px;
   display: inline-block;
 }
 .gameboard {
@@ -90,7 +96,6 @@ main {
   width: 920px;
   float: right;
   display: inline-block;
-  top: 0px;
 }
 
 

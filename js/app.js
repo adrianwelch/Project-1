@@ -1,34 +1,54 @@
 function setup(){
 
   const $playBtn = $('#homeBtn');
+  const $lastPage = $('.lastPage');
+  const $home = $('#backHome');
+  const $playAgain = $('#playAgain')
   const $gameboard = $('.gameboard');
   const $btn = $('#play');
   const $reset = $('#reset');
   const $first = $('#first');
   const $timer = $('.timer');
+  const $h1 = $('h1');
   const $scoreboard = $('.scoreboard');
+  const $score = $('.score');
   const $tiles = $('.tile');
+  const $livestxt = $('.livestxt');
   const $lives = $('.lives');
   const $active = $('.active');
-  const $wrongTarget = $('.wrongTarget')
+  const $wrongTarget = $('.wrongTarget');
   let addClass = null;
   let wrongClass = null;
   let timerId = null;
   let moveTimer = null;
   let gameInPlay = true;
   let delay = 1000;
+  const audio = $('#crowd');
 
   let score = 0;
   let time = 30;
   let lives = 5;
-  $lives.html(lives);
-  $scoreboard.html(score);
+  $livestxt.html(lives);
+  $score.html(score);
 
-  $playBtn.click(function() {
+  function play() {
     $('html, body').animate({
       scrollTop: $gameboard.offset().top
     }, 2000);
-  });
+  }
+
+  function lastPage() {
+    $('html, body').animate({
+      scrollTop: $lastPage.offset().top
+    }, 2000);
+  }
+
+  // GOES TO TOP BUT GOES BACK DOWN
+  function home() {
+    $('html, body').animate({scrollTop : 0},800);
+  }
+
+
 
   function timer() {
     timerId = setInterval(() => {
@@ -36,6 +56,7 @@ function setup(){
       $timer.html(time);
 
       if(time === 0) {
+        lastPage();
         restart();
       }
     }, 1000);
@@ -52,9 +73,9 @@ function setup(){
       .removeClass('active wrongTarget');
     $btn.show();
     lives = 5;
-    $lives.html(lives);
+    $livestxt.html(lives);
     score = 0;
-    $scoreboard.html(score);
+    $score.html(score);
     time = 30;
     $timer.html(time);
   }
@@ -71,10 +92,12 @@ function setup(){
     if($randomTile[0] === $randomTileTwo[0]) {
       highlightTiles();
     } else {
+      $tiles.removeClass('shake');
       $randomTile.addClass('active');
       $randomTileTwo.addClass('wrongTarget');
 
-      if(score <= 4) delay = 1000;
+      // time between tile and next appearing without click
+      if(score <= 4) delay = 2000;
       else if(score > 10) delay = 300;
       else if(score >= 5) delay = 600;
 
@@ -102,7 +125,13 @@ function setup(){
   function gameOver() {
     if (lives === 0) {
       stopTimer();
+      lastPage();
+      audioPlay();
     }
+  }
+
+  function audioPlay() {
+    audio.play();
   }
 
   function timesUp() {
@@ -110,11 +139,13 @@ function setup(){
       stopTimer();
       $tiles.removeClass('wrongTarget active');
       ($tiles).off('click');
+
     }
   }
 
   //Function for when correct/incorrect clicked
   $tiles.on('click', (e) => {
+    $(e.target).addClass('shake');
     // var prevScore = score;
     if (gameInPlay) {
       gameInPlay = false;
@@ -123,15 +154,16 @@ function setup(){
       if($tile.hasClass('active')) {
         score++;
         $tiles.removeClass('active wrongTarget');
-        $scoreboard.html(score);
+        $score.html(score);
       } else {
         lives--;
-        $lives.html(lives);
+        $livestxt.html(lives);
         $tiles.removeClass('active wrongTarget');
       }
 
+      // time from clicking to next tile
       if (score <= 4) {
-        setTimeout(highlightTiles, 600);
+        setTimeout(highlightTiles, 1000);
       } else if (score >= 5) {
         setTimeout(highlightTiles, 400);
       } else if (score > 10)  {
@@ -146,5 +178,7 @@ function setup(){
   $playBtn.on('click', play);
   $btn.on('click', timer);
   $reset.on('click', restart);
+  $home.on('click', home);
+  $playAgain.on('click', play);
 }
 $(setup);

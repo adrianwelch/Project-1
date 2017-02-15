@@ -4,15 +4,24 @@
     <meta charset="utf-8">
     <title>Project 1</title>
     <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+    <!-- <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js" type="text/javascript"></script> -->
+
+    <!-- <link rel="stylesheet" type="text/css" href="http://csshake.surge.sh/csshake.min.css"> -->
+
   </head>
 
 
   <body>
+    <audio id="crowd" src="./audio/crowd.mp3"></audio>
     <header>
+      <div class="shake">
       <h1>Game</h1>
+    </div>
+
     </header>
 
     <div class="homePage">
@@ -35,29 +44,34 @@
         Score: <span class="score"></span>
       </div>
       <div class="lives">
-        Lives:
+        Lives: <span class="livestxt"></span>
       </div>
       </div>
-
-
     </div>
-     <a name="gameboard"/>;
       <div class="gameboard">
-        <div class="tile" id="first"> </div>
-        <div class="tile" id="second"> </div>
-        <div class="tile" id="third"> </div>
-        <div class="tile" id="fourth"> </div>
-        <div class="tile" id="fifth"> </div>
-        <div class="tile" id="sixth"> </div>
-        <div class="tile" id="seventh"> </div>
-        <div class="tile" id="eighth"> </div>
-        <div class="tile" id="ninth"> </div>
-        <div class="tile" id="tenth"> </div>
-        <div class="tile" id="eleventh"> </div>
-        <div class="tile" id="twelfth"> </div>
-        <div class="tile" id="thirteenth"> </div>
-        <div class="tile" id="fourteenth"> </div>
-        <div class="tile" id="fifteenth"> </div>
+        <div class="tile animated" id="first"> </div>
+        <div class="tile animated" id="second"> </div>
+        <div class="tile animated" id="third"> </div>
+        <div class="tile animated" id="fourth"> </div>
+        <div class="tile animated" id="fifth"> </div>
+        <div class="tile animated" id="sixth"> </div>
+        <div class="tile animated" id="seventh"> </div>
+        <div class="tile animated" id="eighth"> </div>
+        <div class="tile animated" id="ninth"> </div>
+        <div class="tile animated" id="tenth"> </div>
+        <div class="tile animated" id="eleventh"> </div>
+        <div class="tile animated" id="twelfth"> </div>
+        <div class="tile animated" id="thirteenth"> </div>
+        <div class="tile animated" id="fourteenth"> </div>
+        <div class="tile animated" id="fifteenth"> </div>
+      </div>
+
+      <div class="lastPage">
+        <div class="scoreboard">
+          You Hit: <span class="score"> </span> Targets!
+        </div>
+        <button id='backHome'>Home</button>
+        <button id='playAgain'>Play Again?</button>
       </div>
     </main>
 
