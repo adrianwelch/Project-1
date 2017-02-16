@@ -11,6 +11,24 @@
   height: 1024px;
 }
 
+#play {
+  height: 170px;
+  border-radius: 50%;
+  width: 170px;
+  font-size: 30px;
+  display: inline-block;
+  margin: 60px 50px 0 80px;
+
+}
+
+#reset {
+  height: 170px;
+  border-radius: 50%;
+  width: 170px;
+  font-size: 30px;
+  display: inline-block;
+
+}
 
 #homeBtn {
   margin-left: 40%;
@@ -29,7 +47,7 @@
   width: 150px;
   border-radius: 53%;
   background-position: 52% 49%;
-  margin: 758px 1088px;
+  margin: 611px 1088px;
   position: absolute;
   display: block;
   z-index: 10;
@@ -43,7 +61,7 @@
     margin-left: 459px;
     background-size: cover;
     display: inline-block;
-    margin-top: 492px;
+    margin-top: 344px;
     position: relative;
     z-index: 1;
   }
@@ -55,9 +73,10 @@ main {
   width: 1784px;
 }
 
-.scoreboard{
+.scoreboard {
   font-size: 30px;
   font-family:
+  margin-top: 50px;
 }
 
 /*http://giphy.com/gifs/soccer-explosion-e84Tzls5uTzyM*/
@@ -90,12 +109,15 @@ main {
 
 /*right target*/
 .tile:after {
-  background-image: url("https://pbs.twimg.com/profile_images/661555137924612096/o8AqVwHg.png");
+  background-image: url("https://media.giphy.com/media/VIyoN5Ubpn9g4/source.gif");
+  border-radius: 53%;
+  background-position: 51% 134%;
 }
 
 /*wrongTarget*/
 .tile:before {
   background-image: url("http://anonymousglobal.org/commanderx/blog/wp-content/uploads/2014/12/redX2.png");
+
 }
 
 .tile.active:after {
@@ -129,6 +151,7 @@ body {
   border-radius: 64px;
   float: right;
   margin-right: 22px;
+  margin-top: 50px;
   }
 
 .lives {

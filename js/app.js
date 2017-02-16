@@ -94,6 +94,11 @@ function setup(){
 
     highlightTiles();
     $btn.hide();
+    $reset.css({
+      'margin-left': '200px',
+      'margin-top': '60px'
+    });
+
   }
 
   function restart() {
