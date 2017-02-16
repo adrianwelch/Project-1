@@ -13,40 +13,50 @@
     <!-- <link rel="stylesheet" type="text/css" href="http://csshake.surge.sh/csshake.min.css"> -->
 
   </head>
-
-
   <body>
+
     <audio id="crowd" src="./audio/crowd.mp3"></audio>
-    <header>
+    <audio id="neville" src="./audio/neville.mp3"></audio>
+
+    <header class = 'top'>
       <div class="shake">
-      <h1>Game</h1>
     </div>
 
     </header>
-
     <div class="homePage">
-    <button id='homeBtn'><a href="#homePage">Play Game</a></button>
+    <button id="homeBtn"><a href="#homePage">Play Game</a></button>
+    <button id="howtoPlay"><a href="#howtoPlay">How to Play</a></button>
+    </div>
+
+    <div class="instructions">
+      <h2>Instructions</h2>
+      <p> Score as many points as you can by clicking on the right targets that appear. The higher the score, the harder it gets! </p>
+
     </div>
 
 
     <main>
       <div class="left">
-      <div class="timer">
-        30
-      </div>
+
       <div class="display">Ready?</div>
       <button id="play">Play</button>
       <button id="reset">Restart</button>
 
-
       <div class="scoreLives">
+        <div class="timer">
+          30
+        </div>
       <div class="scoreboard">
         Score: <span class="score"></span>
       </div>
       <div class="lives">
         Lives: <span class="livestxt"></span>
       </div>
+      <div class="ballbackground">
+
       </div>
+      </div>
+      <div class="ball"></div>
     </div>
       <div class="gameboard">
         <div class="tile animated" id="first"> </div>
@@ -65,18 +75,16 @@
         <div class="tile animated" id="fourteenth"> </div>
         <div class="tile animated" id="fifteenth"> </div>
       </div>
-
+</main>
       <div class="lastPage">
         <div class="scoreboard">
           You Hit: <span class="score"> </span> Targets!
+
         </div>
+
         <button id='backHome'>Home</button>
         <button id='playAgain'>Play Again?</button>
       </div>
-    </main>
-
-
-
 
 
     </body>

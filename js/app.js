@@ -3,7 +3,8 @@ function setup(){
   const $playBtn = $('#homeBtn');
   const $lastPage = $('.lastPage');
   const $home = $('#backHome');
-  const $playAgain = $('#playAgain')
+  const $homePage = $('.homePage');
+  const $playAgain = $('#playAgain');
   const $gameboard = $('.gameboard');
   const $btn = $('#play');
   const $reset = $('#reset');
@@ -22,6 +23,7 @@ function setup(){
   let timerId = null;
   let moveTimer = null;
   let gameInPlay = true;
+  let gameIsOver = false;
   let delay = 1000;
   const audio = $('#crowd');
 
@@ -31,13 +33,36 @@ function setup(){
   $livestxt.html(lives);
   $score.html(score);
 
+
+//   $(function () {
+//     var body = $('body');
+//     var backgrounds = [
+//       'url(https://media.giphy.com/media/14p7buzGhwsYta/giphy.gif)',
+//       'url(http://giphy.com/gifs/7uWa4dZTM9Nja)'];
+//     var current = 0;
+//
+//     function nextBackground() {
+//         $homePage.css(
+//             'background',
+//         backgrounds[current = ++current % backgrounds.length]);
+//
+//         setTimeout(nextBackground, 5000);
+//     }
+//     setTimeout(nextBackground, 5000);
+//     body.css('background', backgrounds[0]), 'background-size', cover;
+// });
+
+
+
   function play() {
+    console.log('play');
     $('html, body').animate({
       scrollTop: $gameboard.offset().top
     }, 2000);
   }
 
   function lastPage() {
+    console.log('lastpage');
     $('html, body').animate({
       scrollTop: $lastPage.offset().top
     }, 2000);
@@ -45,8 +70,13 @@ function setup(){
 
   // GOES TO TOP BUT GOES BACK DOWN
   function home() {
-    $('html, body').animate({scrollTop : 0},800);
+    console.log('home');
+    $('html, body').animate({
+    scrollTop: $homePage.offset().top
+  }, 800);
+    // $('html, body').animate({scrollTop : 0},800);
   }
+
 
 
 
@@ -56,8 +86,9 @@ function setup(){
       $timer.html(time);
 
       if(time === 0) {
-        lastPage();
         restart();
+        console.log('about to call lastPage() from inside timer');
+        lastPage();
       }
     }, 1000);
 
@@ -68,6 +99,7 @@ function setup(){
   function restart() {
     clearInterval(timerId);
     clearInterval(moveTimer);
+    gameIsOver = false;
     $tiles
       .show()
       .removeClass('active wrongTarget');
@@ -82,6 +114,7 @@ function setup(){
 
 
   function highlightTiles() {
+    console.log('highlightTiles()');
 
     var target = Math.floor(Math.random() * 14);
     var $randomTile = $tiles.eq(target);
@@ -101,11 +134,13 @@ function setup(){
       else if(score > 10) delay = 300;
       else if(score >= 5) delay = 600;
 
-      moveTimer = setTimeout(function() {
-        $randomTileTwo.removeClass('wrongTarget');
-        $randomTile.removeClass('active');
-        highlightTiles();
-      }, delay);
+      if(!gameIsOver) {
+        moveTimer = setTimeout(function() {
+          $randomTileTwo.removeClass('wrongTarget');
+          $randomTile.removeClass('active');
+          highlightTiles();
+        }, delay);
+      }
 
       gameInPlay = true;
 
@@ -124,22 +159,30 @@ function setup(){
 
   function gameOver() {
     if (lives === 0) {
+      gameIsOver = true;
       stopTimer();
+      console.log('about to call lastPage() from inside gameOver');
       lastPage();
-      audioPlay();
+      // audioPlay();
+      // neville();
     }
   }
 
-  function audioPlay() {
-    audio.play();
-  }
+  // function audioPlay() {
+  //   audio[0].play();
+  // }
+
+
+
+  // function neville() {
+  //     audio[1].play();
+  //     }
 
   function timesUp() {
     if (time === 0) {
       stopTimer();
       $tiles.removeClass('wrongTarget active');
       ($tiles).off('click');
-
     }
   }
 

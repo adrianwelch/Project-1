@@ -1,11 +1,72 @@
 .homePage {
-  height: 1000px;
+  height: 1024px;
   background-color: white;
+  background-image: url('https://media4.giphy.com/media/uyQYlViAbZVEA/giphy.gif');
+  background-size: 2019px;
+  margin-left: -9px
+  margin-left: -9px;
 }
+
+.instructions {
+  height: 1024px;
+}
+
+
+#homeBtn {
+  margin-left: 40%;
+  font-size: 45px;
+  border-radius: 50%;
+  height: 422px;
+  width: 422px;
+  background-image: url('https://media.giphy.com/media/aTtX6MTPTTefe/giphy.gif');
+  background-position: 52% 49%;
+
+}
+
+.ball {
+  background-image: url('https://media.giphy.com/media/pTldYdCG9r128/giphy.gif');
+  height: 150px;
+  width: 150px;
+  border-radius: 53%;
+  background-position: 52% 49%;
+  margin: 758px 1088px;
+  position: absolute;
+  display: block;
+  z-index: 10;
+
+}
+
+.ballbackground {
+    background-image: url('http://i.imgur.com/JFx7kVo.png');
+    height: 420px;
+    width: 1236px;
+    margin-left: 459px;
+    background-size: cover;
+    display: inline-block;
+    margin-top: 492px;
+    position: relative;
+    z-index: 1;
+  }
+
+main {
+  background-color: blue;
+  display: inline-block;
+  height: 1020px;
+  width: 1784px;
+}
+
+.scoreboard{
+  font-size: 30px;
+  font-family:
+}
+
+/*http://giphy.com/gifs/soccer-explosion-e84Tzls5uTzyM*/
+/*http://www.reddit.com/r/soccer/comments/1we6na/match_thread_liverpool_fc...*/
+
 
 .lastPage {
   height: 1000px;
-  background-color: red;
+  background-color: ;
 }
 
 .tile {
@@ -49,7 +110,7 @@
   color: orange;
 }
 body {
-  background-color: red;
+  background-color: ;
 }
 
 /*.active {
@@ -63,8 +124,13 @@ body {
 
 .scoreLives {
   border: 20px solid black;
-  width: 80px;
-}
+  width: 401px;
+  height: 205px;
+  border-radius: 64px;
+  float: right;
+  margin-right: 22px;
+  }
+
 .lives {
   color: white;
   font-size: 25px;
@@ -77,15 +143,11 @@ body {
   display: inline-block;
 }
 
-main {
-  margin: 150px auto;
-  background-color: blue;
-  display: inline-block;
-}
+
 
 .left {
   height: 600px;
-  width: 864px;
+  width: 532px;
   display: inline-block;
 }
 .gameboard {
@@ -93,7 +155,7 @@ main {
   background-image: url("http://i.imgur.com/G2X0Avl.png");
   background-size: cover;
   height: 600px;
-  width: 920px;
+  width: 1236px;
   float: right;
   display: inline-block;
 }
