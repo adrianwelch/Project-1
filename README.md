@@ -4,12 +4,6 @@
 
 ###GA WDI London - Project 1
 
-
-This version of Hangman has two game options:
-
-1. Play with a friend, where one of you enters a word and the other guesses 
-2. Select a category from a dropdown list and the computer will randomly generate a word for you to guess
-
 #####[Play it here!]( "Here!")
 
 ![](/Users/adrian/Desktop/Screen Shot 2017-02-17 at 06.31.40.png)
@@ -27,7 +21,7 @@ This version of Hangman has two game options:
 
 ####Approach / How it works
 
-When the option of 2 targets appear, if the user clicks on a target, a function will check whether the target that has been clicked has the class 'active' or 'incorrect. If the target clicked on has 'active', the score goes up by one and is updated immediately. if anywhere else on the goal is clicked and does not have the class 'active', a life will go down. 
+When the option of 2 targets appear, if the user clicks on a target, a function will check whether the target that has been clicked has the class 'active' (colourful circular target)  or 'Wrong Target' (red cross. If the target clicked on has 'active', the score goes up by one and is updated immediately. if anywhere else on the goal is clicked and does not have the class 'active', a life will go down. 
 
 Targets are appeared based on the function that generates a two random numbers from 0-14, storing it in two variables and adding the class 'active' or 'wrongTarget'. There is then a delay which allows the user to react and click on the targets before removing the classes from the game and restarting the function to generate the next targets. After every 5 correct targets hit, the delay is shorter making it more difficult to react to the targets.
 
