@@ -14,9 +14,9 @@
 
   </head>
   <body>
-
+<!--
     <audio id="crowd" src="./audio/crowd.mp3"></audio>
-    <audio id="neville" src="./audio/neville.mp3"></audio>
+    <audio id="neville" src="./audio/neville.mp3"></audio> -->
 
     <header class = 'top'>
       <div class="shake">
@@ -36,28 +36,27 @@
 
 
     <main>
-      <div class="left">
+      <div class="animateBall">
+        <div class="left">
 
-      <div class="display">Ready?</div>
-      <button id="play">Play</button>
-      <button id="reset">Restart</button>
+          <div class="display">Ready?</div>
+          <button id="play">Play</button>
+          <button id="reset">Restart</button>
 
-      <div class="scoreLives">
-        <div class="timer">
-          30
-        </div>
-      <div class="scoreboard">
-        Score: <span class="score"></span>
+          <div class="scoreLives">
+            <div class="timer">
+              30
+            </div>
+            <div class="scoreboard">
+              Score: <span class="score"></span>
+            </div>
+            <div class="lives">
+              Lives: <span class="livestxt"></span>
+            </div>
+            <div class="ballbackground"></div>
+            </div>
+          </div>
       </div>
-      <div class="lives">
-        Lives: <span class="livestxt"></span>
-      </div>
-      <div class="ballbackground">
-
-      </div>
-      </div>
-      <div class="ball"></div>
-    </div>
       <div class="gameboard">
         <div class="tile animated" id="first"> </div>
         <div class="tile animated" id="second"> </div>
@@ -74,20 +73,20 @@
         <div class="tile animated" id="thirteenth"> </div>
         <div class="tile animated" id="fourteenth"> </div>
         <div class="tile animated" id="fifteenth"> </div>
+        <div class="ball"></div>
       </div>
-</main>
-      <div class="lastPage">
-        <div class="scoreboard">
-          You Hit: <span class="score"> </span> Targets!
-
-        </div>
-
-        <button id='backHome'>Home</button>
-        <button id='playAgain'>Play Again?</button>
+    </main>
+    <div class="lastPage">
+      <div class="scoreboard">
+        You Hit: <span class="score"> </span> Targets!
       </div>
 
+      <button id="backHome">Home</button>
+      <button id="playAgain">Play Again?</button>
+    </div>
 
-    </body>
+
+  </body>
 
 
 </html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Updated Game</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="js/app.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <audio id="cl" src="audio/cl.mp3"></audio>
+    <audio id="crowd" src="audio/footballCrowd.mp3"></audio>
+    <audio id="target" src="audio/gameover.mp3"></audio>
+
+
+    <section id="welcome">
+      <button id="takeToMain">Play Game</button>
+      <h1>Penalty Clickout</h1>
+      <p> Score as many points as you can by clicking on the circular colourful targets that appear! The higher the score, the harder it gets! <br> You have 5 Lives, Good Luck! </p>
+    </section>
+    <section id="main">
+      <div id="scoreboard">
+        <h2 class = 'ready'>Ready?</h2>
+        <div class="buttonsMain">
+        <button id="play">Play</button>
+        <button id="reset">Restart</button>
+        </div>
+        <div class="scoreLives">
+          <div class="timer">
+            30
+          </div>
+          <div class="scoreboard">
+            Score: <span class="score"></span>
+          </div>
+          <div class="lives">
+            Lives: <span class="livestxt"></span>
+          </div>
+        </div>
+        </div>
+        <div id="goal">
+          <div class="tile animated" id="first"></div>
+          <div class="tile animated" id="second"></div>
+          <div class="tile animated" id="third"></div>
+          <div class="tile animated" id="fourth"></div>
+          <div class="tile animated" id="fifth"></div>
+          <div class="tile animated" id="sixth"></div>
+          <div class="tile animated" id="sevonth"></div>
+          <div class="tile animated" id="eighth"></div>
+          <div class="tile animated" id="ninth"></div>
+          <div class="tile animated" id="tenth"></div>
+          <div class="tile animated" id="eleventh"></div>
+          <div class="tile animated" id="twelfth"></div>
+          <div class="tile animated" id="thirteenth"></div>
+          <div class="tile animated" id="fourteenth"></div>
+          <div class="tile animated" id="fifteenth"></div>
+          <div class="ballbackground"></div>
+        </div>
+      <div id="ball"></div>
+
+    </section>
+    <section id="lastPage">
+      <div class="scoreboard" id=bottomscore>
+        You Scored: <span class="score"> </span> Points!
+      </div>
+      <div class="bottomBtns">
+      <button id="backHome">Home</button>
+      <!-- <button id="playAgain">Play Again?</button> -->
+      </div>
+    </section>
+
+  </body>
+</html>

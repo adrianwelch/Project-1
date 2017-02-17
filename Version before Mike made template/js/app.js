@@ -18,6 +18,7 @@ function setup(){
   const $lives = $('.lives');
   const $active = $('.active');
   const $wrongTarget = $('.wrongTarget');
+  const $ball = $('.ball');
   let addClass = null;
   let wrongClass = null;
   let timerId = null;
@@ -53,13 +54,36 @@ function setup(){
 // });
 
 
+  $tiles.on('click', (e) => {
+
+    const $tile = $(e.target);
+
+    if(!$tile.hasClass('active')) return false;
+
+    const pos = $tile.position();
+    console.log(e.target, pos);
+    $ball.animate(pos);
+  //   setTimeout(function() {
+  //     $ball.css({
+  //       'background-image': url('https://media.giphy.com/media/pTldYdCG9r128/giphy.gif'),
+  //       height: '150px',
+  //       width: '150px',
+  //       'border-radius': '53%',
+  //       'background-position': '52% 49',
+  //       margin: '611px 1088px',
+  //       position: 'absolute',
+  //       display: 'block',
+  //       'z-index': '10'
+  //     }, 2000);
+  //   }
+  // );
+  });
 
   function play() {
     console.log('play');
     $('html, body').animate({
       scrollTop: $gameboard.offset().top
     }, 2000);
-  }
 
   function lastPage() {
     console.log('lastpage');
@@ -109,6 +133,10 @@ function setup(){
       .show()
       .removeClass('active wrongTarget');
     $btn.show();
+    // $reset.css({
+    //     'margin-left': '200px',
+    //     'margin-top': '60px'
+    //   });
     lives = 5;
     $livestxt.html(lives);
     score = 0;
