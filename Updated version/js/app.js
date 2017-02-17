@@ -14,7 +14,7 @@ $(() => {
   const $livestxt = $('.livestxt');
   const $ready = $('.ready');
   const $goal = $('#goal div');
-  const $ball = $('#ball')
+  const $ball = $('#ball');
   // sounds
   const $cl = $('audio').get(0);
   const $footballCrowd = $('audio').get(1);
@@ -31,6 +31,7 @@ $(() => {
   $livestxt.html(lives);
   $score.html(score);
 
+  // ball animation
   $goal.on('click', (e) => {
     const pos = $(e.target).position();
     if ($(e.target).hasClass('active') || $(e.target).hasClass('wrongTarget')) {
